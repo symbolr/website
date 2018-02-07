@@ -22,4 +22,9 @@ public class IndexController {
 	    mv.setViewName("/Products_List");
 	    return mv;
 	}
+	@RequestMapping(value = "/picture")
+	public ModelAndView picture(ModelAndView mv) {
+	    mv.setViewName("/picture");
+	    return mv;
+	}
 }
