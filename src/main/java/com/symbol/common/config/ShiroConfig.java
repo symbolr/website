@@ -1,4 +1,4 @@
-package com.symbol.common.config;
+/*package com.symbol.common.config;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -40,12 +40,12 @@ public class ShiroConfig {
 		return shiroFilterFactoryBean;
 	}
 
-	/**
+	*//**
 	 * 凭证匹配器
 	 * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
 	 * ）
 	 * @return
-	 */
+	 *//*
 	@Bean
 	public HashedCredentialsMatcher hashedCredentialsMatcher(){
 		HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
@@ -69,12 +69,12 @@ public class ShiroConfig {
 		return securityManager;
 	}
 
-	/**
+	*//**
 	 *  开启shiro aop注解支持.
 	 *  使用代理方式;所以需要开启代码支持;
 	 * @param securityManager
 	 * @return
-	 */
+	 *//*
 	@Bean
 	public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
 		AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
@@ -95,4 +95,4 @@ public class ShiroConfig {
 		//r.setWarnLogCategory("example.MvcLogger");     // No default
 		return r;
 	}
-}
+}*/
