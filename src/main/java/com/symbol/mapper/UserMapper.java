@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import com.symbol.model.UserEntity;
-import com.symbol.model.UserSexEnum;
+
+import com.symbol.model.UserInfo;
 
 /**
  * @Select 是查询类的注解，所有的查询均使用这个
@@ -23,23 +23,26 @@ public interface UserMapper {
 	
 	@Select("SELECT * FROM users")
 	@Results({
-		@Result(property = "userSex",  column = "user_sex", javaType = UserSexEnum.class),
+		@Result(property = "userSex",  column = "user_sex"),
 		@Result(property = "nickName", column = "nick_name")
 	})
-	List<UserEntity> getAll();
+	List<UserInfo> getAll();
+	
+	@Select("SELECT * FROM users WHERE username = #{username}")
+	UserInfo findByUsername(String username);
 	
 	@Select("SELECT * FROM users WHERE id = #{id}")
 	@Results({
-		@Result(property = "userSex",  column = "user_sex", javaType = UserSexEnum.class),
+		@Result(property = "userSex",  column = "user_sex"),
 		@Result(property = "nickName", column = "nick_name")
 	})
-	UserEntity getOne(Long id);
+	UserInfo getOne(Long id);
 
 	@Insert("INSERT INTO users(userName,passWord,user_sex) VALUES(#{userName}, #{passWord}, #{userSex})")
-	void insert(UserEntity user);
+	void insert(UserInfo user);
 
 	@Update("UPDATE users SET userName=#{userName},nick_name=#{nickName} WHERE id =#{id}")
-	void update(UserEntity user);
+	void update(UserInfo user);
 
 	@Delete("DELETE FROM users WHERE id =#{id}")
 	void delete(Long id);

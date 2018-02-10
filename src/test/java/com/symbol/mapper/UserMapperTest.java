@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.symbol.model.UserEntity;
-import com.symbol.model.UserSexEnum;
+import com.symbol.model.UserInfo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,16 +20,12 @@ public class UserMapperTest {
 
 	@Test
 	public void testInsert() throws Exception {
-		UserMapper.insert(new UserEntity("aa", "a123456", UserSexEnum.MAN));
-		UserMapper.insert(new UserEntity("bb", "b123456", UserSexEnum.WOMAN));
-		UserMapper.insert(new UserEntity("cc", "b123456", UserSexEnum.WOMAN));
-
 		Assert.assertEquals(3, UserMapper.getAll().size());
 	}
 
 	@Test
 	public void testQuery() throws Exception {
-		List<UserEntity> users = UserMapper.getAll();
+		List<UserInfo> users = UserMapper.getAll();
 		if(users==null || users.size()==0){
 			System.out.println("is null");
 		}else{
@@ -41,11 +36,9 @@ public class UserMapperTest {
 	
 	@Test
 	public void testUpdate() throws Exception {
-		UserEntity user = UserMapper.getOne(29l);
+		UserInfo user = UserMapper.getOne(29l);
 		System.out.println(user.toString());
-		user.setNickName("neo");
 		UserMapper.update(user);
-		Assert.assertTrue(("neo".equals(UserMapper.getOne(29l).getNickName())));
 	}
 
 }

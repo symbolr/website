@@ -7,7 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+/*	@Autowired
+	private UserMapper dao;
+	*/
 	@RequestMapping(value = "/user")
 	public ModelAndView user(ModelAndView mv) {
 	    mv.setViewName("/user");
