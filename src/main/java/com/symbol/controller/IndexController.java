@@ -8,6 +8,7 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
@@ -17,6 +18,11 @@ public class IndexController {
     public String index(){
         return "/index";
     }
+	@RequestMapping(value = "/home")
+	public ModelAndView home(ModelAndView mv) {
+	    mv.setViewName("/home");
+	    return mv;
+	}
     @RequestMapping("/login")
     public String login(HttpServletRequest request, Map<String, Object> map) throws Exception{
         System.out.println("HomeController.login()");

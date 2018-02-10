@@ -69,7 +69,13 @@ public class UserInfo implements Serializable {
         this.roleList = roleList;
     }
 
-    /**
+    @Override
+	public String toString() {
+		return "UserInfo [uid=" + uid + ", username=" + username + ", name=" + name + ", password=" + password
+				+ ", salt=" + salt + ", state=" + state + ", roleList=" + roleList + "]";
+	}
+
+	/**
      * 密码盐.
      * @return
      */

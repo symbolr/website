@@ -21,7 +21,7 @@ import com.symbol.model.UserInfo;
  */
 public interface UserMapper {
 	
-	@Select("SELECT * FROM users")
+	@Select("SELECT * FROM user_info")
 	@Results({
 		@Result(property = "userSex",  column = "user_sex"),
 		@Result(property = "nickName", column = "nick_name")
